@@ -95,14 +95,13 @@ public class InventoryClick implements Listener {
             if (event.getSlot() > 8 && event.getSlot() < 53){
                 if (event.getCurrentItem() != null){
                     player.getInventory().addItem(event.getCurrentItem());
-                    event.setCancelled(true);
                 }
             }
             if (Objects.equals(event.getCurrentItem(), WeaponsMenuItems.BACK_MAIN_MENU)){
                 event.getWhoClicked().closeInventory();
                 event.getWhoClicked().openInventory(InventoryList.instance.WEAPON_MENU);
-                event.setCancelled(true);
             }
+            event.setCancelled(true);
         }
 
     }

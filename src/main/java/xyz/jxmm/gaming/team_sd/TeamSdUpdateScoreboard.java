@@ -2,14 +2,11 @@ package xyz.jxmm.gaming.team_sd;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.Team;
 import xyz.jxmm.gaming.ModeTeamSD;
 
-import static xyz.jxmm.Cs_on_Minecraft.mainCmd;
 import static xyz.jxmm.Cs_on_Minecraft.plugin;
 import static xyz.jxmm.utils.SendActionBar.sendActionBar;
 
@@ -32,7 +29,6 @@ public class TeamSdUpdateScoreboard {
         sendActionBar(player,
                 ChatColor.DARK_RED + "死亡数: "
                 + ChatColor.RED + deathCount.getScore(player.getName()).getScore());
-
     }
 
     public void kill(){
@@ -49,12 +45,11 @@ public class TeamSdUpdateScoreboard {
         String team;
         if (TeamPlayerList.playerListA.contains(player)){
             team = "A";
-            Objective score = plugin.getServer().getScoreboardManager().getMainScoreboard().getObjective(worldName + "_score");
+            Objective score = scoreboard.getObjective(worldName + "_score");
             int s = score.getScore("队伍A").getScore();
             score.getScore("队伍A").setScore(s+1);
-            plugin.getServer().getScoreboardManager().getMainScoreboard().clearSlot(DisplaySlot.SIDEBAR);
+            scoreboard.clearSlot(DisplaySlot.SIDEBAR);
             score.setDisplaySlot(DisplaySlot.SIDEBAR);
-            player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             player.setScoreboard(score.getScoreboard());
 
             s1 = s+1;
@@ -66,7 +61,6 @@ public class TeamSdUpdateScoreboard {
             score.getScore("队伍B").setScore(s+1);
             plugin.getServer().getScoreboardManager().getMainScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             score.setDisplaySlot(DisplaySlot.SIDEBAR);
-            player.getScoreboard().clearSlot(DisplaySlot.SIDEBAR);
             player.setScoreboard(score.getScoreboard());
 
             s1 = s+1;
@@ -78,6 +72,7 @@ public class TeamSdUpdateScoreboard {
 
         if (s1 == 80){
             player.getWorld().getPlayers().forEach(p -> {
+                new ModeTeamSD(p).win();
                 switch (team){
                     case "A":
                         p.sendTitle(ChatColor.AQUA + "游戏结束!", ChatColor.BLUE + "队伍A胜利", 10, 20, 10);
@@ -87,10 +82,6 @@ public class TeamSdUpdateScoreboard {
                         break;
                 }
 
-                p.chat("/" + mainCmd + " exit");
-                Objective score = plugin.getServer().getScoreboardManager().getMainScoreboard().getObjective(worldName + "_score");
-                score.getScore("队伍A").setScore(0);
-                score.getScore("队伍B").setScore(0);
             });
         }
 

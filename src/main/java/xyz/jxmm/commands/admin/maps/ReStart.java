@@ -15,6 +15,7 @@ import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import static xyz.jxmm.Cs_on_Minecraft.lobbyWorld;
 import static xyz.jxmm.Cs_on_Minecraft.plugin;
@@ -44,25 +45,26 @@ public class ReStart extends SubCommand implements ParentCommand {
         if (args.length == 0){
             for (Player all : ((Player) s).getWorld().getPlayers()){
                 all.chat("/" + Cs_on_Minecraft.mainCmd + " exit");
-                return true;
             }
+            return true;
         } else {
             if (args[0].equalsIgnoreCase(lobbyWorld)){
                 s.sendMessage( ChatColor.RED + "无法对大厅使用该指令");
             } else {
-                Player p = (Player) s;
-                String worldName = p.getWorld().getName();
+                String worldName = args[0] + ".json";
                 String mode = gson.fromJson(fileReader(folder + worldName), JsonObject.class).get("mode").getAsString();
                 switch (mode){
                     case "team-sd":
                         Objective score = plugin.getServer().getScoreboardManager().getMainScoreboard().getObjective(worldName + "_score");
-                        score.getScore("队伍A").setScore(0);
-                        score.getScore("队伍B").setScore(0);
-                        break;
-                    default:
-                        for (Player all : plugin.getServer().getWorld(args[0]).getPlayers()){
-                            all.sendRawMessage("/" + Cs_on_Minecraft.mainCmd + " exit");
+                        if (score != null) {
+                            score.getScore("队伍A").setScore(0);
+                            score.getScore("队伍B").setScore(0);
                         }
+                        break;
+
+                }
+                for (Player all : plugin.getServer().getWorld(args[0]).getPlayers()){
+                    all.chat("/" + Cs_on_Minecraft.mainCmd + " exit");
                 }
                 return true;
             }

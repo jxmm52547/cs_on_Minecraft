@@ -80,7 +80,7 @@ public class CheckMode {
 
         if (joinOrWait){
             player.sendTitle("§a§l已切换至旁观模式", "§a§l休息会吗", 10, 70, 20);
-            player.setBedSpawnLocation(Cs_on_Minecraft.lobbyLocation,true);
+//            player.setBedSpawnLocation(Cs_on_Minecraft.lobbyLocation,true);
         } else {
             player.sendTitle(ChatColor.GREEN + "You have joined " + worldName, ChatColor.AQUA + "Have fun!", 10, 70, 20);
         }

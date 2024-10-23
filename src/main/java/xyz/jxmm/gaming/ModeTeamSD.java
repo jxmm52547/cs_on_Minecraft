@@ -10,16 +10,19 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import xyz.jxmm.gaming.team_sd.TeamPlayerList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
+import static xyz.jxmm.Cs_on_Minecraft.mainCmd;
 import static xyz.jxmm.Cs_on_Minecraft.plugin;
-import static xyz.jxmm.gaming.team_sd.TeamPlayerList.playerListA;
-import static xyz.jxmm.gaming.team_sd.TeamPlayerList.playerListB;
+import static xyz.jxmm.gaming.team_sd.TeamPlayerList.*;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 import static xyz.jxmm.utils.ItemStackFromBase64.itemStackFromBase64;
 
@@ -51,6 +54,7 @@ public class ModeTeamSD {
             player.setFlying(false);
             player.setAllowFlight(false);
             player.setNoDamageTicks(0);
+            player.setScoreboard(scoreboard.getObjective(worldName + "_score").getScoreboard());
             // player.getWorld().setGameRule(GameRule.KEEP_INVENTORY, true);
 
             for (PotionEffectType potionEffectType : PotionEffectType.values()) {
@@ -75,9 +79,10 @@ public class ModeTeamSD {
                 player.sendMessage(ChatColor.RED + "队伍人数大于该队伍的出生点数量!");
                 player.sendMessage(ChatColor.RED + "请选择其他队伍或联系管理!");
             } else {
-                int n = playerListA.size() - 1;
-                player.setBedSpawnLocation(locationList.get(n), true);
-                player.teleport(locationList.get(n));
+                player.teleport(Objects.requireNonNull(player.getBedSpawnLocation()));
+//                int n = playerListA.size() - 1;
+//                player.setBedSpawnLocation(locationList.get(n), true);
+//                player.teleport(locationList.get(n));
             }
 
         } else if (playerListB.contains(player)){
@@ -107,9 +112,10 @@ public class ModeTeamSD {
                 player.sendMessage(ChatColor.RED + "队伍人数大于该队伍的出生点数量!");
                 player.sendMessage(ChatColor.RED + "请选择其他队伍或联系管理!");
             } else {
-                int n = playerListB.size() - 1;
-                player.setBedSpawnLocation(locationList.get(n), true);
-                player.teleport(locationList.get(n));
+                player.teleport(Objects.requireNonNull(player.getBedSpawnLocation()));
+//                int n = playerListB.size() - 1;
+//                player.setBedSpawnLocation(locationList.get(n), true);
+//                player.teleport(locationList.get(n));
             }
         } else {
             player.sendMessage(ChatColor.RED + "加入任意队伍后可进入游戏!");
@@ -137,9 +143,25 @@ public class ModeTeamSD {
             locationList.add(loc);
         }
         int n = playerListA.size() - 1;
-        player.setBedSpawnLocation(locationList.get(n), true);
-        player.teleport(locationList.get(n));
+//        player.setBedSpawnLocation(locationList.get(n), true);
+//        player.teleport(locationList.get(n));
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 1));
+
+        Objective score = scoreboard.getObjective(worldName + "_score");
+        scoreboard.clearSlot(DisplaySlot.SIDEBAR);
+        score.setDisplaySlot(DisplaySlot.SIDEBAR);
+        player.setScoreboard(score.getScoreboard());
+    }
+
+    public void win(){
+        for (int i = 0; i < player.getWorld().getPlayers().size(); i++) {
+            if (!spectatorList.contains(player)){
+                player.chat("/" + mainCmd + " exit");
+            }
+        }
+        Objective score = plugin.getServer().getScoreboardManager().getMainScoreboard().getObjective(worldName + "_score");
+        score.getScore("队伍A").setScore(0);
+        score.getScore("队伍B").setScore(0);
     }
 
     public void giveDefaultItem(){

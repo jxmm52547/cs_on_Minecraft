@@ -26,7 +26,9 @@ public class FileReaderMethod {
         }
         finally {
             try {
-                isr.close();
+                if (isr != null) {
+                    isr.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
