@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.utils.FileWriterMethod;
 
 import java.io.File;
@@ -15,7 +15,7 @@ import java.nio.file.Files;
 
 public class Main {
     static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-    static File cfgFolder = Cs_on_Minecraft.getPlugin().getDataFolder();
+    static File cfgFolder = Fps_on_Minecraft.getPlugin().getDataFolder();
     static File cfg = new File(cfgFolder, "config.json");
 
 

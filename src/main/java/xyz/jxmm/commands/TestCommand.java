@@ -2,19 +2,15 @@ package xyz.jxmm.commands;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
 import org.bukkit.ChatColor;
-import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
-import xyz.jxmm.utils.FileWriterMethod;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.ItemStackToBase64.itemStackToBase64;
 
 public class TestCommand extends Command {

@@ -7,7 +7,7 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import xyz.jxmm.gaming.ModeTeamSD;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.SendActionBar.sendActionBar;
 
 public class TeamSdUpdateScoreboard {

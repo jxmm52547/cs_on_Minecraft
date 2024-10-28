@@ -9,7 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.utils.FileReaderMethod;
@@ -34,7 +34,7 @@ public class AddTeamSpawnPoint extends SubCommand {
         if (args.length < 1) s.sendMessage(ChatColor.RED + "非法使用");
 
         Player p = (Player) s;
-        String filePath = Cs_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + p.getWorld().getName() + ".json";
+        String filePath = Fps_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + p.getWorld().getName() + ".json";
         JsonObject json = gson.fromJson(FileReaderMethod.fileReader(filePath), JsonObject.class);
 
         if (!(json.get("mode").getAsString().equalsIgnoreCase("team-sd"))){

@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.function.Supplier;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 
 public class ItemStackToBase64 {
     public static String itemStackToBase64(ItemStack item){

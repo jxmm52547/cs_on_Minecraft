@@ -4,16 +4,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
 import xyz.jxmm.gaming.ModeSD;
 import xyz.jxmm.gaming.ModeTeamSD;
 import xyz.jxmm.gaming.sd.SdUpdateScoreboard;
 import xyz.jxmm.gaming.team_sd.TeamSdUpdateScoreboard;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.map.config.MapList.SD_WORLDS;
 import static xyz.jxmm.map.config.MapList.TEAM_SD_WORLDS;
 

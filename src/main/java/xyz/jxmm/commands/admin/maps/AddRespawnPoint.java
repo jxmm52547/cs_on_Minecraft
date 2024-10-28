@@ -4,18 +4,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.utils.FileReaderMethod;
 import xyz.jxmm.utils.FileWriterMethod;
 
-import java.io.File;
 import java.util.List;
 
 public class AddRespawnPoint extends SubCommand {
@@ -42,7 +40,7 @@ public class AddRespawnPoint extends SubCommand {
         }
 
         Player p = (Player) s;
-        String filePath = Cs_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + p.getWorld().getName() + ".json";
+        String filePath = Fps_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + p.getWorld().getName() + ".json";
 
         JsonObject json = gson.fromJson(FileReaderMethod.fileReader(filePath), JsonObject.class);
         JsonArray respawnPoints = json.has("respawnPoints") ? json.get("respawnPoints").getAsJsonArray() : new JsonArray();

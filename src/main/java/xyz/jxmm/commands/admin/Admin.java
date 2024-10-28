@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.commands.admin.maps.*;
@@ -135,8 +135,8 @@ public class Admin extends SubCommand implements ParentCommand {
         if (args.length == 0) {
             s.sendMessage(" ");
             s.sendMessage("§8§l|-" + " §6" +
-                    Cs_on_Minecraft.getPlugin().getDescription().getName() + " v" +
-                    Cs_on_Minecraft.getPlugin().getDescription().getVersion() + " §7- §cCommands");
+                    Fps_on_Minecraft.getPlugin().getDescription().getName() + " v" +
+                    Fps_on_Minecraft.getPlugin().getDescription().getVersion() + " §7- §cCommands");
             s.sendMessage(" ");
             s.sendMessage(getName());
             s.sendMessage(args);

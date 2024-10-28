@@ -10,7 +10,7 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.map.Misc;
@@ -23,7 +23,7 @@ import java.util.List;
 public class SetWaitingSpawn extends SubCommand {
     private ParentCommand parent;
     private String name;
-    static Plugin plugin = Cs_on_Minecraft.getPlugin();
+    static Plugin plugin = Fps_on_Minecraft.getPlugin();
     static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     static File arenasFolder = new File(plugin.getDataFolder() + "\\arenas");
 
@@ -47,7 +47,7 @@ public class SetWaitingSpawn extends SubCommand {
     public boolean execute(String[] args, CommandSender s) {
         if (s instanceof Player p) {
             if (p.isOp()) {
-                if (!p.getWorld().getName().equals(Cs_on_Minecraft.lobbyWorld)) {
+                if (!p.getWorld().getName().equals(Fps_on_Minecraft.lobbyWorld)) {
                     Location loc = p.getLocation();
                     World world = loc.getWorld();
                     world.setSpawnLocation(loc);
@@ -61,10 +61,10 @@ public class SetWaitingSpawn extends SubCommand {
 
                     switch (json.get("mode").getAsString()){
                         case "sd":
-                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.BLUE + "     ▪     " + ChatColor.GOLD + "CLICK HERE TO ADD SPAWN POINT    " + ChatColor.BLUE + " ▪", ChatColor.DARK_RED + "Click to add spawn point.", "/" + Cs_on_Minecraft.mainCmd + " admin addSpawnPoint", ClickEvent.Action.RUN_COMMAND));
+                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.BLUE + "     ▪     " + ChatColor.GOLD + "CLICK HERE TO ADD SPAWN POINT    " + ChatColor.BLUE + " ▪", ChatColor.DARK_RED + "Click to add spawn point.", "/" + Fps_on_Minecraft.mainCmd + " admin addSpawnPoint", ClickEvent.Action.RUN_COMMAND));
                         case "team-sd":
-                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + "     ▪     " + ChatColor.RED + "CLICK HERE TO ADD TEAM A SPAWN POINT    " + ChatColor.GOLD + " ▪", ChatColor.DARK_RED + "Click to add team A spawn point.", "/" + Cs_on_Minecraft.mainCmd + " admin addTeamSpawnPoint A", ClickEvent.Action.RUN_COMMAND));
-                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + "     ▪     " + ChatColor.BLUE + "CLICK HERE TO ADD TEAM B SPAWN POINT    " + ChatColor.GOLD + " ▪", ChatColor.DARK_BLUE + "Click to add team B spawn point.", "/" + Cs_on_Minecraft.mainCmd + " admin addTeamSpawnPoint B", ClickEvent.Action.RUN_COMMAND));
+                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + "     ▪     " + ChatColor.RED + "CLICK HERE TO ADD TEAM A SPAWN POINT    " + ChatColor.GOLD + " ▪", ChatColor.DARK_RED + "Click to add team A spawn point.", "/" + Fps_on_Minecraft.mainCmd + " admin addTeamSpawnPoint A", ClickEvent.Action.RUN_COMMAND));
+                            p.spigot().sendMessage(Misc.msgHoverClick(ChatColor.GOLD + "     ▪     " + ChatColor.BLUE + "CLICK HERE TO ADD TEAM B SPAWN POINT    " + ChatColor.GOLD + " ▪", ChatColor.DARK_BLUE + "Click to add team B spawn point.", "/" + Fps_on_Minecraft.mainCmd + " admin addTeamSpawnPoint B", ClickEvent.Action.RUN_COMMAND));
 
                     }
 

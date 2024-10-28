@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -13,7 +12,7 @@ import org.bukkit.scoreboard.Team;
 import java.util.ArrayList;
 import java.util.List;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 
 public class TeamPlayerList {

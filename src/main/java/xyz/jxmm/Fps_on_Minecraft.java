@@ -12,7 +12,6 @@ import xyz.jxmm.commands.MainCommand;
 import xyz.jxmm.commands.Respawn;
 import xyz.jxmm.commands.TestCommand;
 import xyz.jxmm.events.EventListener;
-import xyz.jxmm.events.PlayerJoin;
 import xyz.jxmm.gaming.team_sd.inventory.InventoryList;
 import xyz.jxmm.map.CreateScoreboard;
 import xyz.jxmm.map.config.MapList;
@@ -21,9 +20,9 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-public final class Cs_on_Minecraft extends JavaPlugin {
+public final class Fps_on_Minecraft extends JavaPlugin {
 
-    public static String mainCmd = "cs", link ="https://github.com/jxmm52547/cs_on_Minecraft";
+    public static String mainCmd = "fps", link ="https://github.com/jxmm52547/FPS-On-Minecraft";
     public static Plugin plugin;
     public static JsonObject config = new JsonObject();
 
@@ -57,7 +56,7 @@ public final class Cs_on_Minecraft extends JavaPlugin {
             Field bukkitCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
             bukkitCommandMap.setAccessible(true);
             CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
-            commandMap.register(mainCmd, new MainCommand("cs"));
+            commandMap.register(mainCmd, new MainCommand("fps"));
             commandMap.register("", new Lobby("lobby"));
             commandMap.register("", new Respawn("respawn"));
             commandMap.register("", new TestCommand("test"));

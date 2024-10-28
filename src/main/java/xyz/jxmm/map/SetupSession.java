@@ -7,7 +7,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.utils.FileWriterMethod;
 
 import java.io.File;
@@ -24,7 +24,7 @@ public class SetupSession implements ISetupSession{
     private static List<SetupSession> setupSessions = new ArrayList<>();
     private Player player;
     private String worldName;
-    static Plugin plugin = Cs_on_Minecraft.getPlugin();
+    static Plugin plugin = Fps_on_Minecraft.getPlugin();
     static File arenasFolder = new File(plugin.getDataFolder().getPath() + "\\arenas");
     private String mode = "sd";
 
@@ -82,8 +82,8 @@ public class SetupSession implements ISetupSession{
                 new File(Bukkit.getWorldContainer(), world + "/uid.dat")}) {
             if (f.exists()) {
                 if (!f.delete()) {
-                    Cs_on_Minecraft.getPlugin().getLogger().warning("Could not delete: " + f.getPath());
-                    Cs_on_Minecraft.getPlugin().getLogger().warning("This may cause issues!");
+                    Fps_on_Minecraft.getPlugin().getLogger().warning("Could not delete: " + f.getPath());
+                    Fps_on_Minecraft.getPlugin().getLogger().warning("This may cause issues!");
                 }
             }
         }
@@ -142,7 +142,7 @@ public class SetupSession implements ISetupSession{
         File arenaFile = new File(arenasFolder, worldName + ".json");
         FileWriterMethod.fileWriter(arenaFile.getPath(), gson.toJson(json));
 
-        player.spigot().sendMessage(Misc.msgHoverClick(ChatColor.BLUE + "     ▪     " + ChatColor.GOLD + "CLICK HERE TO SET THE WAITING LOBBY    " + ChatColor.BLUE + " ▪", ChatColor.LIGHT_PURPLE + "Click to set the waiting spawn.", "/" + Cs_on_Minecraft.mainCmd + " admin setupWaitingSpawn", ClickEvent.Action.RUN_COMMAND));
+        player.spigot().sendMessage(Misc.msgHoverClick(ChatColor.BLUE + "     ▪     " + ChatColor.GOLD + "CLICK HERE TO SET THE WAITING LOBBY    " + ChatColor.BLUE + " ▪", ChatColor.LIGHT_PURPLE + "Click to set the waiting spawn.", "/" + Fps_on_Minecraft.mainCmd + " admin setupWaitingSpawn", ClickEvent.Action.RUN_COMMAND));
 
     }
 

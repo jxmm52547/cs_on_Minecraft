@@ -6,7 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
@@ -38,7 +38,7 @@ public class EditMap extends SubCommand implements ParentCommand {
         if (args.length == 1) {
             String worldName = args[0];
             for (World w : Bukkit.getWorlds()){
-                if (!w.getName().equals(Cs_on_Minecraft.lobbyWorld) && w.getName().equalsIgnoreCase(worldName)){
+                if (!w.getName().equals(Fps_on_Minecraft.lobbyWorld) && w.getName().equalsIgnoreCase(worldName)){
                     p.setGameMode(GameMode.CREATIVE);
                     p.teleport(w.getSpawnLocation());
                     return true;
@@ -70,7 +70,7 @@ public class EditMap extends SubCommand implements ParentCommand {
     public List<String> tabComplete(CommandSender s, String alias, String[] args, Location location) throws IllegalArgumentException {
         List<String> list = new ArrayList<>();
         for (World w : Bukkit.getWorlds()){
-            if (!w.getName().equals(Cs_on_Minecraft.lobbyWorld)){
+            if (!w.getName().equals(Fps_on_Minecraft.lobbyWorld)){
                 list.add(w.getName());
             }
         }

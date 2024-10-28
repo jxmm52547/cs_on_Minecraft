@@ -7,9 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 
 public class PlayerWorldChange implements Listener {
     //玩家切换世界事件
@@ -24,7 +23,7 @@ public class PlayerWorldChange implements Listener {
         Player p = e.getPlayer();
         World w = p.getWorld();
 
-        if (w.getName().equals(Cs_on_Minecraft.lobbyWorld)){
+        if (w.getName().equals(Fps_on_Minecraft.lobbyWorld)){
             p.getInventory().clear();
             p.setGameMode(GameMode.ADVENTURE);
             p.setFlying(false);

@@ -6,7 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
@@ -40,8 +40,8 @@ public class BackToLobby extends SubCommand {
         }
 
         Player player = (Player) s;
-        if (!player.getWorld().getName().equals(Cs_on_Minecraft.lobbyWorld)){
-            player.teleport(Cs_on_Minecraft.lobbyLocation);
+        if (!player.getWorld().getName().equals(Fps_on_Minecraft.lobbyWorld)){
+            player.teleport(Fps_on_Minecraft.lobbyLocation);
             player.setGameMode(GameMode.ADVENTURE);
         } else {
             player.sendMessage(ChatColor.RED + "You are already in lobby");

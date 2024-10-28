@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.gaming.CheckMode;
@@ -18,7 +18,7 @@ import java.util.List;
 public class Join extends SubCommand implements ParentCommand {
     private ParentCommand parent;
     private String name;
-    static Plugin plugin = Cs_on_Minecraft.getPlugin();
+    static Plugin plugin = Fps_on_Minecraft.getPlugin();
     static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     /**
      * @param parent parent command
@@ -45,7 +45,7 @@ public class Join extends SubCommand implements ParentCommand {
 
         Player player = (Player) s;
         if (args.length == 0){
-            if (!player.getWorld().getName().equals(Cs_on_Minecraft.lobbyWorld)){
+            if (!player.getWorld().getName().equals(Fps_on_Minecraft.lobbyWorld)){
                 new CheckMode(player).join();
             } else {
                 player.sendMessage(ChatColor.RED + "无参数仅能在地图中使用!");
@@ -82,10 +82,10 @@ public class Join extends SubCommand implements ParentCommand {
         if (!(s instanceof Player)) return null;
 
         Player p = (Player) s;
-        if (p.getWorld().getName().equalsIgnoreCase(Cs_on_Minecraft.lobbyWorld)){
+        if (p.getWorld().getName().equalsIgnoreCase(Fps_on_Minecraft.lobbyWorld)){
             List<String> list = new ArrayList<>();
             for (World w : Bukkit.getWorlds()){
-                if (!w.getName().equals(Cs_on_Minecraft.lobbyWorld)){
+                if (!w.getName().equals(Fps_on_Minecraft.lobbyWorld)){
                     list.add(w.getName());
                 }
             }

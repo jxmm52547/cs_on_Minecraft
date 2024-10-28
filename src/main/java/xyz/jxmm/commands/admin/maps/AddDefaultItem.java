@@ -9,7 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.utils.FileReaderMethod;
@@ -50,7 +50,7 @@ public class AddDefaultItem extends SubCommand {
             return false;
         } else {
             player.sendMessage("Added Default Item");
-            String filePath = Cs_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + player.getWorld().getName() + ".json";
+            String filePath = Fps_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + player.getWorld().getName() + ".json";
             JsonObject json = gson.fromJson(FileReaderMethod.fileReader(filePath), JsonObject.class);
             JsonArray items = json.has("items") ? json.get("items").getAsJsonArray() : new JsonArray();
             items.add(itemStackToBase64(item));

@@ -4,29 +4,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.utils.FileReaderMethod;
 
-import org.bukkit.inventory.CraftingInventory;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.*;
 
-import static xyz.jxmm.commands.admin.maps.SetWaitingSpawn.plugin;
 import static xyz.jxmm.utils.FileWriterMethod.fileWriter;
-import static xyz.jxmm.utils.ItemStackFromBase64.itemStackFromBase64;
 import static xyz.jxmm.utils.ItemStackToBase64.itemStackToBase64;
 
 public class AddWeapon extends SubCommand {
@@ -59,7 +49,7 @@ public class AddWeapon extends SubCommand {
             return false;
         } else {
             player.sendMessage("Added weapon");
-            String filePath = Cs_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + player.getWorld().getName() + ".json";
+            String filePath = Fps_on_Minecraft.getPlugin().getDataFolder().toPath() + "/arenas/" + player.getWorld().getName() + ".json";
             JsonObject json = gson.fromJson(FileReaderMethod.fileReader(filePath), JsonObject.class);
             JsonArray weapons = json.has("weapons") ? json.get("weapons").getAsJsonArray() : new JsonArray();
             weapons.add(itemStackToBase64(item));

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 import static xyz.jxmm.utils.ItemStackFromBase64.itemStackFromBase64;
 

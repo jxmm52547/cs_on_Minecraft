@@ -3,7 +3,7 @@ package xyz.jxmm.config;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.utils.FileWriterMethod;
 
 import java.io.*;
@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 public class Change {
-    static File cfg = new File(Cs_on_Minecraft.getPlugin().getDataFolder(), "config.json");
+    static File cfg = new File(Fps_on_Minecraft.getPlugin().getDataFolder(), "config.json");
     static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     public static void change(String[] args, String value){
         JsonObject json;
@@ -29,7 +29,7 @@ public class Change {
         FileWriterMethod.fileWriter(cfg.getPath(), gson.toJson(json));
 
         try {
-            Cs_on_Minecraft.config = gson.fromJson(new InputStreamReader(new FileInputStream(cfg), StandardCharsets.UTF_8), JsonObject.class);
+            Fps_on_Minecraft.config = gson.fromJson(new InputStreamReader(new FileInputStream(cfg), StandardCharsets.UTF_8), JsonObject.class);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

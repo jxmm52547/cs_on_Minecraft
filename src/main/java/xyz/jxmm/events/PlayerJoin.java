@@ -1,7 +1,5 @@
 package xyz.jxmm.events;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -9,11 +7,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.scoreboard.*;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 
 import java.util.List;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.map.config.MapList.SD_WORLDS;
 import static xyz.jxmm.map.config.MapList.TEAM_SD_WORLDS;
 
@@ -27,8 +25,8 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent e) {
         org.bukkit.entity.Player p = e.getPlayer();
         p.getInventory().clear();
-        if (Cs_on_Minecraft.lobbyLocation != null){
-            p.teleport(Cs_on_Minecraft.lobbyLocation);
+        if (Fps_on_Minecraft.lobbyLocation != null){
+            p.teleport(Fps_on_Minecraft.lobbyLocation);
         }
         p.sendTitle("§a§l欢迎来到§b§l終末牽挂§a§l的§b§lTACZ", "§a§lWelcome back!", 10, 70, 20);
         p.setGameMode(GameMode.ADVENTURE);
@@ -37,7 +35,7 @@ public class PlayerJoin implements Listener {
 
             List<World> worlds = plugin.getServer().getWorlds();
             for (World w : worlds){
-                if (!w.getName().equalsIgnoreCase(Cs_on_Minecraft.lobbyWorld)){
+                if (!w.getName().equalsIgnoreCase(Fps_on_Minecraft.lobbyWorld)){
                     if (TEAM_SD_WORLDS.contains(w.getName())){
                         try {
                             Team teamA = plugin.getServer().getScoreboardManager().getMainScoreboard().registerNewTeam(w.getName() + "teamA");

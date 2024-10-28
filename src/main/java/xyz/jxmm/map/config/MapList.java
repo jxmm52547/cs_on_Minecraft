@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import org.bukkit.*;
 import org.bukkit.plugin.Plugin;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.map.SetupSession;
 import xyz.jxmm.utils.FileReaderMethod;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapList {
-    static Plugin plugin = Cs_on_Minecraft.getPlugin();
+    static Plugin plugin = Fps_on_Minecraft.getPlugin();
     static File file = new File(plugin.getDataFolder() + "\\arenas");
     static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     public final static List<String> SD_WORLDS = new ArrayList<>();

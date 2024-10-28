@@ -3,19 +3,14 @@ package xyz.jxmm.events;
 import com.mohistmc.bukkit.entity.MohistModsEntity;
 import com.tacz.guns.entity.EntityKineticBullet;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.projectile.Projectile;
 import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-import java.util.Arrays;
-
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
 import static xyz.jxmm.gaming.team_sd.TeamPlayerList.spectatorList;
 import static xyz.jxmm.utils.SendActionBar.sendActionBar;
 

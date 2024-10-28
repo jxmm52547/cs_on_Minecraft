@@ -10,15 +10,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Objective;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
 import java.util.List;
-import java.util.function.Supplier;
 
-import static xyz.jxmm.Cs_on_Minecraft.lobbyWorld;
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.lobbyWorld;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 
 public class ReStart extends SubCommand implements ParentCommand {
@@ -44,7 +43,7 @@ public class ReStart extends SubCommand implements ParentCommand {
 
         if (args.length == 0){
             for (Player all : ((Player) s).getWorld().getPlayers()){
-                all.chat("/" + Cs_on_Minecraft.mainCmd + " exit");
+                all.chat("/" + Fps_on_Minecraft.mainCmd + " exit");
             }
             return true;
         } else {
@@ -64,7 +63,7 @@ public class ReStart extends SubCommand implements ParentCommand {
 
                 }
                 for (Player all : plugin.getServer().getWorld(args[0]).getPlayers()){
-                    all.chat("/" + Cs_on_Minecraft.mainCmd + " exit");
+                    all.chat("/" + Fps_on_Minecraft.mainCmd + " exit");
                 }
                 return true;
             }

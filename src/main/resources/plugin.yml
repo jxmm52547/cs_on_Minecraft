@@ -1,7 +1,7 @@
-name: cs_on_Minecraft
+name: Fps_on_Minecraft
 version: '1.0-SNAPSHOT'
-main: xyz.jxmm.Cs_on_Minecraft
+main: xyz.jxmm.Fps_on_Minecraft
 api-version: '1.19'
 authors: [ 靖暄 ]
-description: 在MC里实现CS中包含的玩法
+description: 在MC里实现FPS游戏中包含的玩法
 website: https://www.github.com/jxmm52547

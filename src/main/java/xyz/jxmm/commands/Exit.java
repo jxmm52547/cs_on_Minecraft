@@ -6,11 +6,10 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 import xyz.jxmm.gaming.CheckMode;
-import xyz.jxmm.gaming.sd.SdUpdateScoreboard;
 import xyz.jxmm.gaming.team_sd.TeamSdUpdateScoreboard;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class Exit extends SubCommand {
         }
 
         Player player = (Player) s;
-        if (!player.getWorld().getName().equals(Cs_on_Minecraft.lobbyWorld)){
+        if (!player.getWorld().getName().equals(Fps_on_Minecraft.lobbyWorld)){
             if (TEAM_SD_WORLDS.contains(player.getWorld().getName())){
                 player.teleport(player.getWorld().getSpawnLocation());
                 player.setGameMode(GameMode.ADVENTURE);

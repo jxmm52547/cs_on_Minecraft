@@ -8,13 +8,12 @@ import org.bukkit.GameMode;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
-import xyz.jxmm.Cs_on_Minecraft;
 import xyz.jxmm.gaming.team_sd.TeamPlayerList;
 import xyz.jxmm.gaming.team_sd.inventory.WeaponsMenuItems;
 
 import java.util.Objects;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 
 public class CheckMode {

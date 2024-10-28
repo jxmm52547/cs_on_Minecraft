@@ -6,22 +6,19 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
-import xyz.jxmm.gaming.team_sd.TeamPlayerList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
 
-import static xyz.jxmm.Cs_on_Minecraft.mainCmd;
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
+import static xyz.jxmm.Fps_on_Minecraft.mainCmd;
+import static xyz.jxmm.Fps_on_Minecraft.plugin;
 import static xyz.jxmm.gaming.team_sd.TeamPlayerList.*;
 import static xyz.jxmm.utils.FileReaderMethod.fileReader;
 import static xyz.jxmm.utils.ItemStackFromBase64.itemStackFromBase64;

@@ -6,8 +6,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.potion.PotionEffectType;
 
-import static xyz.jxmm.Cs_on_Minecraft.plugin;
-
 public class HungryEvent implements Listener {
     public static HungryEvent instance;
     public HungryEvent() {

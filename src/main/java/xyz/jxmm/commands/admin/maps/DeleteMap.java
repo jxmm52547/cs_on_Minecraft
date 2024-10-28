@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
@@ -86,7 +86,7 @@ public class DeleteMap extends SubCommand {
                 }
             }
         }
-        worlds.remove(Cs_on_Minecraft.lobbyWorld);
+        worlds.remove(Fps_on_Minecraft.lobbyWorld);
 
         return worlds;
     }

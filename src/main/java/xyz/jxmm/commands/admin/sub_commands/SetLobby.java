@@ -3,7 +3,7 @@ package xyz.jxmm.commands.admin.sub_commands;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import xyz.jxmm.Cs_on_Minecraft;
+import xyz.jxmm.Fps_on_Minecraft;
 import xyz.jxmm.api.command.ParentCommand;
 import xyz.jxmm.api.command.SubCommand;
 
@@ -41,7 +41,7 @@ public class SetLobby extends SubCommand {
         xyz.jxmm.config.Change.change(new String[]{"lobby", "yaw"}, String.valueOf(yaw));
         xyz.jxmm.config.Change.change(new String[]{"lobby", "pitch"}, String.valueOf(pitch));
 
-        Cs_on_Minecraft.setLobbyLocation();
+        Fps_on_Minecraft.setLobbyLocation();
         s.sendMessage("设置成功");
         return true;
     }
